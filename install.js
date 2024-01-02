@@ -1,4 +1,16 @@
 const { spawn } = require("child_process");
+const fs = require("fs");
+const path = require("path");
+
+const copyEnvFile = (directory) => {
+  const envExamplePath = path.join(directory, ".env.example");
+  const envPath = path.join(directory, ".env");
+
+  if (!fs.existsSync(envPath) && fs.existsSync(envExamplePath)) {
+    fs.copyFileSync(envExamplePath, envPath);
+    console.log(`Created .env file in ${directory}`);
+  }
+};
 
 const installDependencies = (directory) => {
   console.log(`Installing dependencies in ${directory}...`);
@@ -21,5 +33,6 @@ const installDependencies = (directory) => {
   });
 };
 
+copyEnvFile("./backend");
 installDependencies("./backend");
 installDependencies("./frontend");
