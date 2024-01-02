@@ -19,7 +19,7 @@ const runCommand = (command, args, directory) => {
 };
 
 console.log("Starting Backend...");
-const backend = runCommand("npm", ["run", "demo"], "./backend");
+const backend = runCommand("npm", ["run", "demo"], "./_backend");
 
 console.log("Starting Frontend...");
-const frontend = runCommand("npm", ["run", "dev"], "./frontend");
+const frontend = runCommand("npm", ["run", "dev"], "./_frontend");

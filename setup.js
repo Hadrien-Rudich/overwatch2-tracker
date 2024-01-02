@@ -40,8 +40,8 @@ const installDependencies = (directory) => {
 
 const setupProject = async () => {
   copyEnvFile("./backend");
-  await installDependencies("./backend");
-  await installDependencies("./frontend");
+  await installDependencies("./_backend");
+  await installDependencies("./_frontend");
 };
 
 setupProject().catch((error) => {

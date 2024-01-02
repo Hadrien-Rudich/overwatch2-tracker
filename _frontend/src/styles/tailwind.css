@@ -1,0 +1,331 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'); */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@font-face {
+  font-family: 'Big Noodle Titling';
+  src: url('/styles/big_noodle_titling.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media (-webkit-device-pixel-ratio: 2.5) {
+  * {
+    zoom: 99%;
+  }
+}
+
+.bg-image2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: url('/images/Desktop_Outro_Characters.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.4;
+}
+
+.bg-image {
+  background-image: url('/images/Desktop_Outro_Sky.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+body {
+  font-family: 'Big Noodle Titling', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
+  /* font-family: 'Roboto', sans-serif; */
+  /* background-image: url('/images/Desktop_Outro_Characters.png'); */
+  /* font-weight: bolder;  */
+  font-size: 1rem;
+  /* letter-spacing: 0.1rem; */
+  opacity: 1;
+}
+
+.containerbox {
+  @apply flex flex-col items-center justify-center content-center
+   sm:gap-10 gap-5 py-5 sm:py-10
+  sm:w-80  w-60 
+  bg-mainColor shadow-md rounded-sm;
+}
+
+.hamburgermenucontainer {
+  @apply md:hidden flex absolute 
+  xxs:top-1 xs:top-[0.4rem] sm:top-1 md:top-0 top-[0.05rem]
+  xxs:right-[0.8rem] sm:right-[1rem] right-[0.65rem];
+}
+
+.hamburgericon {
+  @apply sm:w-20 xs:w-[4.5rem] w-16
+  sm:h-20  xs:h-[4.5rem] h-16 
+  drop-shadow-md;
+}
+
+.hamburger {
+  @apply absolute z-30 right-[-0.65rem]
+  duration-500 py-4 w-screen
+  rounded-t-none rounded-sm;
+}
+
+.hamburger.active {
+  @apply xs:top-[4.25rem] sm:top-[5.5rem] top-[3.9rem] 
+  xxs:right-[-0.8rem] sm:right-[-1rem] right-[-0.65rem]
+  ease-out shadow-md bg-activeColor;
+}
+
+.hamburger.inactive {
+  @apply top-[-16rem] ease-in
+  xxs:right-[-0.8rem] sm:right-[-1rem] right-[-0.65rem]
+  bg-activeColor;
+}
+
+.accountdropdowncontainer {
+  @apply hidden md:flex absolute
+xxs:top-1 xs:top-[0.4rem] sm:top-2 md:top-0 top-[0.05rem]
+right-0;
+}
+
+.accounticon {
+  @apply relative z-40 w-32 h-20;
+}
+
+.accountdropdown {
+  @apply absolute w-32 h-32 z-10
+  rounded-t-none rounded-r-none rounded-sm duration-500;
+}
+
+.accountdropdown.active {
+  @apply top-0 ease-out shadow-md bg-mainColor;
+}
+
+.accountdropdown.inactive {
+  @apply top-[-300px] ease-in bg-activeColor;
+}
+
+.accountdropdownoption {
+  @apply w-24 h-10 sm:text-2xl text-xl
+  rounded-sm tracking-widest
+  duration-150 ease-in-out;
+}
+
+.accountdropdownoption.active {
+  @apply bg-thirdColor text-secondaryText;
+}
+.accountdropdownoption.inactive {
+  @apply hover:bg-fifthColor hover:shadow-md;
+}
+
+.result {
+  @apply text-mainText shadow-md;
+}
+
+.headertab {
+  @apply flex justify-center items-center
+  sm:w-40 sm:h-10 w-24 h-8
+  sm:text-2xl text-xl 
+  rounded-sm rounded-b-none tracking-widest
+  ease-in-out duration-150;
+}
+
+.headertab.active {
+  @apply bg-thirdColor text-secondaryText shadow-md;
+}
+
+.headertab.inactive {
+  @apply hover:bg-fifthColor hover:shadow-md;
+}
+
+.accounttab {
+  @apply sm:w-40 sm:h-10 w-[7.5rem] h-8
+   rounded-sm rounded-b-none
+   items-center 
+   sm:text-xl text-lg tracking-wider
+   ease-in-out duration-150;
+}
+
+.accounttab.active {
+  @apply bg-thirdColor text-secondaryText 
+  shadow-md z-20;
+}
+
+.accounttab.inactive {
+  @apply bg-secondaryColor hover:bg-activeColor shadow-inner z-0;
+}
+
+.button {
+  @apply sm:w-28 sm:h-10 w-20 h-8
+  hover:scale-110 tracking-wider shadow-md rounded-sm 
+  text-secondaryText sm:text-xl text-lg
+  ease-in-out duration-150;
+}
+
+.button.validate {
+  @apply bg-thirdColor;
+}
+
+.button.cancel {
+  @apply bg-secondaryColor text-mainText;
+}
+
+.inputField {
+  @apply sm:w-36 w-28 text-center shadow-inner rounded-sm tracking-wider;
+}
+
+.inputField.component {
+  @apply sm:h-10 h-8;
+}
+
+.passwordFormatBox {
+  @apply group-hover:grid grid-cols-2 
+  /* divide-x-[0.05rem] divide-mainText  */
+  absolute hidden  top-3 right-[-11rem]  
+  bg-activeColor text-sm text-left rounded-sm tracking-wide
+  ring-[0.1rem] ring-activeGrayColor shadow-md;
+}
+
+.profile {
+  @apply text-center tracking-wider rounded-sm
+        
+      ease-in-out;
+}
+
+.profile.card {
+  @apply w-36 h-10 bg-activeColor;
+}
+
+.profile.selected {
+  @apply scale-110 ring-2 ring-thirdColor shadow-md;
+}
+
+.profile.card.active {
+  @apply shadow-inner 
+  hover:shadow-md duration-150;
+}
+
+.profile.card.disabled {
+  @apply bg-disabled shadow-inner  pointer-events-none;
+}
+
+.profileheader {
+  @apply bg-thirdColor sm:w-80 w-60 sm:h-10 h-8
+      tracking-widest rounded-b-none rounded-sm shadow-md absolute
+      sm:top-[-2.5rem] top-[-2rem]
+sm:text-xl text-lg text-secondaryText;
+}
+
+.inputField.disabled {
+  @apply w-36 h-10 my-2 bg-secondaryColor text-center shadow-inner rounded-sm;
+}
+
+.flexdiv {
+  @apply flex items-center justify-center content-center;
+}
+.flexdiv.col {
+  @apply flex flex-col items-center justify-center content-center;
+}
+
+.list {
+  @apply shadow-md rounded-sm;
+}
+
+.list.selected {
+  @apply scale-105 z-10 rounded-sm ring-2 ring-thirdColor shadow-md;
+}
+
+.list.unselected {
+  @apply opacity-30 bg-activeColor hover:opacity-100;
+}
+
+.game {
+  @apply flexdiv w-full h-12 bg-mainColor hover:shadow-md;
+}
+
+.game.selected {
+  @apply bg-activeColor opacity-100 ring-2 ring-thirdColor shadow-md;
+}
+
+.game.unselected {
+  @apply hover:opacity-100 hover:bg-activeColor;
+}
+
+.sign {
+  @apply hover:scale-110 drop-shadow-md  opacity-40 hover:opacity-100 duration-150 ease-in-out;
+}
+
+.progressBar {
+  width: 50%;
+  height: 3rem;
+  background-color: rgb(255 255 255);
+  border-radius: 0.125rem;
+  color: rgb(255 255 255);
+  position: absolute;
+}
+
+.progressBar::before {
+  content: attr(data-label);
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0rem;
+  top: 0rem;
+  bottom: 0rem;
+  width: calc(var(--width, 0) * 1%);
+  min-width: 0rem;
+  max-width: calc(100%);
+  background-color: rgb(67 160 71);
+  border-radius: 0.125rem;
+  padding: 0.5rem;
+}
+
+.intenseShadow {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 1s;
+}
+
+/* Define the custom animation */
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1.5s 2.5; /* Play the animation tw ice (adjust the animation duration and count as needed) */
+  transition: opacity 1s ease-in-out; /* Add a smooth opacity transition */
+}
+
+.animate-blink2 {
+  animation: blink 1.75s infinite; /* Play the animation twice (adjust the animation duration and count as needed) */
+  transition: opacity 1s ease-in-out; /* Add a smooth opacity transition */
+}
