@@ -71,8 +71,7 @@ export const gameMapper = {
     gameObj: Game.Update
   ): Promise<Game.Base> {
     // to be edited with await and DB call
-    console.log('attempting to update game');
-    console.log(userId, profileId, gameId, gameObj);
+
     const indexOfGameToUpdate = games.findIndex(
       (game) =>
         game.id === gameId &&
@@ -83,7 +82,6 @@ export const gameMapper = {
     if (indexOfGameToUpdate !== -1) {
       const updatedGame = { ...games[indexOfGameToUpdate], ...gameObj };
       games[indexOfGameToUpdate] = updatedGame;
-      console.log(updatedGame);
       return updatedGame;
     } else {
       throw new NotFoundError(`Game with id: ${gameId} not found`);

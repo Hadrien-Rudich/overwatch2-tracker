@@ -34,14 +34,6 @@ function AddProfile() {
     setIsCreatingProfile(false);
   };
 
-  // const handleOutsideClick = () => {
-  //   setInputField(false);
-  //   console.log('je suis la');
-  //   clearNewProfile();
-  // };
-
-  // useOutsideClick(newProfileInputRef, handleOutsideClick, ['click']);
-
   const handleAddProfile = () => {
     try {
       verifyProfileLabelAvailability(newProfile, profilesData);

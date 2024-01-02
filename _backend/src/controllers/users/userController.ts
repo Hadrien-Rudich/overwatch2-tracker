@@ -58,7 +58,6 @@ export const userController = {
         password: hashedPassword,
       });
 
-      console.log(newUser);
       res.status(201).json({ message: `New User created`, user: newUser });
     } catch (error) {
       next(error);

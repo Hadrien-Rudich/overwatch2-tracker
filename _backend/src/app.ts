@@ -20,7 +20,5 @@ app.use(router);
 app.use(apiErrorHandler);
 
 app.listen(config.port, () => {
-  console.log(
-    `Overwatch Game Tracker listening at http://localhost:${config.port}`
-  );
+  console.log(`Overwatch2 Tracker API at: http://localhost:${config.port}`);
 });

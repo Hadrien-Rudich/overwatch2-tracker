@@ -38,9 +38,36 @@ const installDependencies = (directory) => {
   });
 };
 
+const compileTypeScript = (directory) => {
+  return new Promise((resolve, reject) => {
+    console.log(`Compiling TypeScript in ${directory}...`);
+    const compiler = spawn("tsc", [], {
+      cwd: directory,
+      stdio: "inherit",
+      shell: true,
+    });
+
+    compiler.on("error", (error) => {
+      console.error(`Error: ${error.message}`);
+      reject(error);
+    });
+
+    compiler.on("close", (code) => {
+      if (code === 0) {
+        console.log(`TypeScript compiled successfully in ${directory}`);
+        resolve();
+      } else {
+        console.error(`Failed to compile TypeScript in ${directory}`);
+        reject(new Error(`TypeScript compilation failed with code ${code}`));
+      }
+    });
+  });
+};
+
 const setupProject = async () => {
-  copyEnvFile("./backend");
+  copyEnvFile("./_backend");
   await installDependencies("./_backend");
+  await compileTypeScript("./_backend");
   await installDependencies("./_frontend");
 };
 

@@ -58,11 +58,7 @@ export const gameController = {
   ): Promise<void> {
     try {
       const gameObj: Game.New = req.body;
-      console.log('attempting to create gameobject');
-      console.log(gameObj);
       const newGame = await gameMapper.createGame(gameObj);
-      console.log('new game created see below');
-      console.log(newGame);
       res.status(201).json({
         message: `Game created with id: ${newGame.id}`,
         game: newGame,
@@ -79,12 +75,8 @@ export const gameController = {
   ): Promise<void> {
     try {
       const baseGames: Game.New[] = req.body;
-      console.log('attempting to create base games');
-      console.log(baseGames);
 
       const newGames = await gameMapper.createMockGames(baseGames);
-      console.log('new games created, see below');
-      console.log(newGames);
 
       res.status(201).json({
         message: `Games created with IDs: ${newGames
