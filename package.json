@@ -1,0 +1,12 @@
+{
+  "name": "overwatch2-tracker",
+  "version": "1.0.0",
+  "description": "Overwatch2 Game Tracker",
+  "main": "index.js",
+  "scripts": {
+    "install": "node install.js",
+    "start": "node start.js"
+  },
+  "author": "Hadrien Rudich",
+  "license": "ISC"
+}
