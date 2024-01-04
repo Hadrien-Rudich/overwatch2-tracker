@@ -8,8 +8,5 @@
     "start": "node start.js"
   },
   "author": "Hadrien Rudich",
-  "license": "ISC",
-  "devDependencies": {
-    "typescript": "^5.3.3"
-  }
+  "license": "ISC"
 }
