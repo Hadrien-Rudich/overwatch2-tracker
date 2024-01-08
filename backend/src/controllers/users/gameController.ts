@@ -111,7 +111,7 @@ export const gameController = {
         game: updatedGame,
       });
     } catch (error) {
-      console.log('error in updateGame');
+      // console.log('error in updateGame');
       next(error);
     }
   },

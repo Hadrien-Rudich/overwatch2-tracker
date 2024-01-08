@@ -10,7 +10,7 @@ function CancelGameEdit() {
   };
 
   return (
-    <button type="button" className="text-warning hover:scale-125">
+    <button type="button" className="text-warning">
       <FaTimes
         onClick={handleCancelEdit}
         className="sign lg:h-[1.5rem] lg:w-[1.5rem] h-[1.2rem] w-[1.2rem]"

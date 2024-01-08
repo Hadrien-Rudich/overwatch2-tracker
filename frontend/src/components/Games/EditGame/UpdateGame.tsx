@@ -61,7 +61,7 @@ function UpdateGame({ gameObj }: { gameObj: GameData }) {
 
   return (
     <form onSubmit={handleSubmit} action="submit">
-      <button type="submit" className="text-validate hover:scale-125">
+      <button type="submit" className="text-validate hover:scale-110">
         <FaCheck className="sign lg:h-[1.5rem] lg:w-[1.5rem] h-[1.2rem] w-[1.2rem]" />
       </button>
       {errorToast && (

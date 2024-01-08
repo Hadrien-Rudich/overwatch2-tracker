@@ -31,7 +31,7 @@ export const postDataToApi = async <T>(
 ): Promise<T> => {
   try {
     const response: AxiosResponse<T> = await api.post(endpoint, data);
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -44,10 +44,10 @@ export const patchDataOnApi = async <T>(
   data: any
 ): Promise<T> => {
   try {
-    console.log(endpoint);
-    console.log(data);
+    // console.log(endpoint);
+    // console.log(data);
     const response: AxiosResponse<T> = await api.patch(endpoint, data);
-    console.log(response);
+    // console.log(response);
     return response.data;
   } catch (error) {
     console.error(error);

@@ -1,14 +1,14 @@
 import type { GameData } from '../types/store/gameTypes';
 import type { ProfileData } from '../types/store/profileTypes';
-import type { Outcome } from '../types/utilsTypes';
+import type { Result } from '../types/utilsTypes';
 
-const getResultClassName = (gameResult: string, outcome: Outcome): string => {
-  if (gameResult === outcome.label) {
+const getResultClassName = (gameResult: string, result: Result): string => {
+  if (gameResult === result.label) {
     return `result bg-active${
-      outcome.label.charAt(0).toUpperCase() + outcome.label.slice(1)
+      result.label.charAt(0).toUpperCase() + result.label.slice(1)
     }`;
   }
-  if (gameResult !== outcome.label) {
+  if (gameResult !== result.label) {
     return 'hover:bg-activeColor hover:scale-105 hover:z-50';
   }
   return '';
@@ -71,7 +71,7 @@ function getProfileCardClassName(
   if (p.label === selectedProfile.label) {
     return 'profilecard_container profile card selected';
   }
-  return 'profilecard_container profile card active';
+  return 'profilecard_container profile card active ';
 }
 
 export {

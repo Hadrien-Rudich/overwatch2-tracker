@@ -41,7 +41,12 @@ function Profiles() {
 
   return (
     <div className="Profiles_container flexdiv col lg:my-[8.5rem] my-[4.5rem] relative">
-      {isError && profilesData.length === 0 && <NotFound propText="PROFILES" />}
+      {isError && profilesData.length === 0 && (
+        <NotFound
+          propText="NO PROFILES FOUND"
+          topPosition="lg:top-[-5.5rem] top-[-3.4rem]"
+        />
+      )}
       <div
         className={`${
           isUpdatingProfile ? 'grayscale pointer-events-none' : ''

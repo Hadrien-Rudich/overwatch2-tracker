@@ -15,7 +15,7 @@ function Heroes({ gameObj, heroObj, imgHeight }: HeroesProps) {
       {gameObj &&
         gameObj.heroesImageUrl.map((heroImage) => (
           <div
-            className="bg-activeColor rounded-sm "
+            className="bg-activeColor rounded-sm"
             key={(gameObj.id, heroImage)}
           >
             <img

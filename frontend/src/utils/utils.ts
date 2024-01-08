@@ -22,6 +22,51 @@ const months: Month[] = [
   { label: 'December', index: 12 },
 ];
 
+const filterGames = (
+  gameData: GameData[],
+  heroesFilter: string[],
+  mapsFilter: string[],
+  resultsFilter: string[]
+) => {
+  // console.log(gameData);
+  // Sort the gameData array by date in ascending order
+  const sortedGameData = gameData.slice().sort((a, b) => {
+    const dateA = new Date(a.date.split('/').reverse().join('/'));
+    const dateB = new Date(b.date.split('/').reverse().join('/'));
+    return dateA.getTime() - dateB.getTime();
+  });
+
+  // console.log(sortedGameData);
+
+  if (
+    heroesFilter.length === 0 &&
+    mapsFilter.length === 0 &&
+    resultsFilter.length === 0
+  ) {
+    // No filters applied, return sorted original gameData
+    return sortedGameData;
+  }
+
+  const heroesFilteredGames =
+    heroesFilter.length > 0
+      ? sortedGameData.filter((game) =>
+          game.heroes.some((hero) => heroesFilter.includes(hero))
+        )
+      : sortedGameData;
+
+  const mapsFilteredGames =
+    mapsFilter.length > 0
+      ? heroesFilteredGames.filter((game) => mapsFilter.includes(game.map))
+      : heroesFilteredGames;
+
+  const resultsFilteredGames =
+    resultsFilter.length > 0
+      ? mapsFilteredGames.filter((game) => resultsFilter.includes(game.result))
+      : mapsFilteredGames;
+
+  return resultsFilteredGames;
+};
+
 const filterGamesByMonth = (
   month: number,
   gameData: GameData[]
@@ -42,7 +87,7 @@ const filterMapTypes = (mapsData: MapData[], mapType: string): MapData[] => {
 const formatDateForGameEdit = (date: Date): string => {
   const day = date.getDate().toString().padStart(2, '0');
   const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  const year = date.getFullYear().toString().slice(-2);
+  const year = date.getFullYear().toString();
 
   return `${day}/${month}/${year}`;
 };
@@ -51,8 +96,9 @@ const dateNowInGameFormat = (): string => {
   const currentDate = new Date();
   const day = currentDate.getDate().toString().padStart(2, '0');
   const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+  const year = currentDate.getFullYear();
 
-  const formattedDate = `${day}/${month}`;
+  const formattedDate = `${day}/${month}/${year}`;
   return formattedDate;
 };
 
@@ -84,6 +130,7 @@ const verifyProfileLabelAvailability = (
 
 export {
   filterGamesByMonth,
+  filterGames,
   filterMapTypes,
   formatDateForGameEdit,
   convertDateToDatePickerFormat,

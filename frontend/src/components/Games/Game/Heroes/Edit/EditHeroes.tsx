@@ -6,7 +6,7 @@ import Heroes from '../Heroes';
 import HeroesDropDown from './HeroesDropDown';
 
 function EditHeroes({ gameObj }: { gameObj: GameData }) {
-  const { selectedGame, selectedGameHeroes } = gameStore();
+  const { selectedGame } = gameStore();
 
   const [isDropDownActive, setIsDropDownActive] = useState(false);
 
@@ -32,7 +32,7 @@ function EditHeroes({ gameObj }: { gameObj: GameData }) {
               </button>
             ) : ( */}
             <button
-              className="w-full relative ring-2 shadow-md"
+              className="w-full relative ring-2 shadow-md rounded-sm"
               type="button"
               onClick={toggleDropDown}
             >

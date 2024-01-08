@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { register } from '../../services/API/users';
+import { authStore } from '../../store/authStore';
 
 function useUserRegisterMutation({
   email,
@@ -20,6 +21,7 @@ function useUserRegisterMutation({
   setEmailAlreadyInUseError: (value: string) => void;
 }) {
   const navigate = useNavigate();
+  const { setUserCreatedToastMessage, setUserCreatedToast } = authStore();
   const { mutate } = useMutation({
     mutationFn: () =>
       register(
@@ -29,6 +31,8 @@ function useUserRegisterMutation({
       ),
     onSuccess: (data) => {
       if (data.success) {
+        setUserCreatedToastMessage('User created...');
+        setUserCreatedToast(true);
         navigate('/login');
       } else if (
         data.success === false &&

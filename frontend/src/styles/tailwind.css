@@ -10,11 +10,20 @@
   font-style: normal;
 }
 
-@media (-webkit-device-pixel-ratio: 2.5) {
+/* @media (-webkit-device-pixel-ratio: 2.5) {
   * {
     zoom: 99%;
   }
-}
+} */
+
+/* Apply styles for high-density displays with a device pixel ratio of 2 or higher */
+/* 
+@media only screen and (min-resolution: 192dpi),
+  only screen and (min-device-pixel-ratio: 2) {
+  body {
+    font-size: 16px;
+  }
+} */
 
 .bg-image2 {
   position: fixed;
@@ -195,7 +204,7 @@ right-0;
 }
 
 .profile {
-  @apply text-center tracking-wider rounded-sm
+  @apply text-center tracking-wider rounded-sm shadow-md
         
       ease-in-out;
 }
@@ -205,11 +214,11 @@ right-0;
 }
 
 .profile.selected {
-  @apply scale-110 ring-2 ring-thirdColor shadow-md;
+  @apply scale-110 ring-2 ring-thirdColor;
 }
 
 .profile.card.active {
-  @apply shadow-inner 
+  @apply hover:scale-110 
   hover:shadow-md duration-150;
 }
 
@@ -328,4 +337,22 @@ sm:text-xl text-lg text-secondaryText;
 .animate-blink2 {
   animation: blink 1.75s infinite; /* Play the animation twice (adjust the animation duration and count as needed) */
   transition: opacity 1s ease-in-out; /* Add a smooth opacity transition */
+}
+
+.filter {
+  @apply w-2/3 h-6 rounded-sm text-sm;
+}
+
+.filter.inactive {
+  @apply grayscale opacity-50 
+hover:opacity-100 hover:grayscale-0 hover:scale-110;
+}
+
+.filter.inactiveMapType {
+  @apply grayscale opacity-20 
+hover:opacity-100 hover:scale-110;
+}
+
+.filter.active {
+  @apply grayscale-0 opacity-100 scale-110;
 }

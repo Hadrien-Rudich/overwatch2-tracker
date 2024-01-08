@@ -5,6 +5,7 @@ import { authStore } from '../../store/authStore';
 import LoadingSpinner from '../LoadingSpinner';
 import useUserLoginMutation from '../../hooks/users/useUserLoginMutation';
 import { LoginSchema } from '../../validation/dataValidation';
+import SuccessToast from '../SuccessToast';
 
 function LogInForm() {
   const [email, setEmail] = useState('');
@@ -20,8 +21,13 @@ function LogInForm() {
     setIsLoading,
   ] = useState(false);
 
-  const { isLoggedIn } = authStore();
-
+  const {
+    isLoggedIn,
+    userCreatedToastMessage,
+    userCreatedToast,
+    setUserCreatedToast,
+    setUserCreatedToastMessage,
+  } = authStore();
   const navigate = useNavigate();
 
   const mutateUser = useUserLoginMutation({
@@ -124,6 +130,14 @@ function LogInForm() {
             )}
           </div>
         </div>
+        {userCreatedToast && (
+          <SuccessToast
+            toastText={userCreatedToastMessage}
+            setToastText={setUserCreatedToastMessage}
+            isVisible={userCreatedToast}
+            setIsVisible={setUserCreatedToast}
+          />
+        )}
       </div>
     </form>
   );

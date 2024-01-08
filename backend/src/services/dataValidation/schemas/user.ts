@@ -6,7 +6,7 @@ export const UserSchema = {
 
     password: Joi.string()
       .pattern(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&#]{8,}$/
       )
       .required()
       .messages({
@@ -25,7 +25,7 @@ export const UserSchema = {
 
     password: Joi.string()
       .pattern(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,25}$/
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&#]{8,25}$/
       )
       .required()
       .messages({
@@ -45,7 +45,7 @@ export const UserSchema = {
   updatePassword: Joi.object<User.UpdatePassword>({
     password: Joi.string()
       .pattern(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,25}$/
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&#]{8,25}$/
       )
       .required()
       .messages({
@@ -53,7 +53,7 @@ export const UserSchema = {
       }),
     newPassword: Joi.string()
       .pattern(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,25}$/
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&#]{8,25}$/
       )
       .required()
       .messages({

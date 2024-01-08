@@ -41,6 +41,14 @@ export const authStore = create<AuthStore>()((set) => ({
   // newBattleTag: '',
   // setNewBattleTag: (battleTag) => set(() => ({ newBattleTag: battleTag })),
   // clearNewBattleTag: () => set(() => ({ newBattleTag: '' })),
+
+  userCreatedToastMessage: '',
+  userCreatedToast: false,
+  setUserCreatedToastMessage: (message: string) =>
+    set(() => ({ userCreatedToastMessage: message })),
+  setUserCreatedToast: (value: boolean) =>
+    set(() => ({ userCreatedToast: value })),
+
   activeTab: 'details',
   setActiveTab: (tab) =>
     set(() => ({ activeTab: tab, editAccount: false, editSecurity: false })),

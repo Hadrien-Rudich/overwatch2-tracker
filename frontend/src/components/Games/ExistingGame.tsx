@@ -10,7 +10,7 @@ import Heroes from './Game/Heroes/Heroes';
 import Map from './Game/Map/Map';
 import EditMap from './Game/Map/Edit/EditMap';
 import EditHeroes from './Game/Heroes/Edit/EditHeroes';
-import New from './Game/NewLabel/New';
+// import New from './Game/NewLabel/New';
 
 function ExistingGame({ gameObj }: { gameObj: GameData }) {
   const {
@@ -46,7 +46,7 @@ function ExistingGame({ gameObj }: { gameObj: GameData }) {
         onClick={() => handleGameSelection(gameObj)}
         role="button"
         tabIndex={0}
-        className="w-full flexdiv border-[0.01rem] border-activeColor shadow-md"
+        className="w-full flexdiv border-[0.01rem] border-activeColor shadow-md rounded-sm"
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
             handleGameSelection(gameObj);
@@ -82,11 +82,11 @@ function ExistingGame({ gameObj }: { gameObj: GameData }) {
               <EditGameButtons gameObj={gameObj} />
             </div>
           </div>
-          {!isUpdatingGame && (
+          {/* {!isUpdatingGame && (
             <div className="New_container flexdiv">
               <New gameObj={gameObj} />
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </div>

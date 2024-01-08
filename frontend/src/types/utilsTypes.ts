@@ -3,6 +3,6 @@ export interface Month {
   index: number;
 }
 
-export interface Outcome {
+export interface Result {
   label: string;
 }

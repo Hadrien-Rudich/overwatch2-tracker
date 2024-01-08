@@ -89,15 +89,11 @@ function UpdateProfile({ profileObj }: { profileObj: ProfileData }) {
         <button
           type="submit"
           onClick={handleUpdateProfile}
-          className="text-validate hover:scale-125"
+          className="text-validate"
         >
           <FaCheck className="sign h-5 w-5" />
         </button>
-        <button
-          type="button"
-          onClick={handleCancel}
-          className="text-warning hover:scale-125"
-        >
+        <button type="button" onClick={handleCancel} className="text-warning">
           <ImCross className="sign h-[0.9rem] w-[0.9rem]" />
         </button>
       </div>

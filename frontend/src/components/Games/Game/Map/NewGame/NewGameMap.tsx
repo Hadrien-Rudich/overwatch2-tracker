@@ -39,7 +39,7 @@ function NewGameMap() {
             <div className="mapimage_container flexdiv">
               {selectedGameMap !== '' ? (
                 <button
-                  className="w-full relative ring-2 shadow-md"
+                  className="w-full relative ring-2 shadow-md rounded-sm"
                   type="button"
                   onClick={toggleDropDown}
                 >
@@ -53,7 +53,7 @@ function NewGameMap() {
                 </button>
               ) : (
                 <button
-                  className="flexdiv w-full relative ring-2 h-8 shadow-md"
+                  className="flexdiv w-full relative ring-2 h-8 shadow-md rounded-sm"
                   type="button"
                   onClick={toggleDropDown}
                 >
@@ -62,11 +62,11 @@ function NewGameMap() {
                       <p className="sm:text-lg text-base tracking-widest">
                         MAP
                       </p>
+                      <MdOutlineKeyboardArrowDown className="absolute h-8 w-8 top-0 right-0 pointer-events-none lg:block hidden" />
                     </div>
                   </div>
                 </button>
               )}
-              <MdOutlineKeyboardArrowDown className="absolute h-8 w-8 top-0 right-0 pointer-events-none lg:block hidden" />
             </div>
           )}
         </div>

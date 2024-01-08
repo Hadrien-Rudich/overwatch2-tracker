@@ -6,7 +6,7 @@ import Map from '../Map';
 import MapsDropDown from './MapsDropDown';
 
 function EditMap({ gameObj }: { gameObj: GameData }) {
-  const { selectedGame, selectedGameMap } = gameStore();
+  const { selectedGame } = gameStore();
 
   const [isDropDownActive, setIsDropDownActive] = useState(false);
 
@@ -24,24 +24,8 @@ function EditMap({ gameObj }: { gameObj: GameData }) {
             <MapsDropDown gameObj={gameObj} toggleDropDown={toggleDropDown} />
           ) : (
             <div className="mapimage_container flexdiv">
-              {/* {selectedGameMap === selectedGame.map ? (
               <button
-                className="w-full relative ring-2"
-                type="button"
-                onClick={toggleDropDown}
-              >
-                <Map gameObj={selectedGame} imgHeight="h-8" />
-                <div className="map_container flexdiv">
-                  <div className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 flexdiv px-1 bg-mainText bg-opacity-40 h-8 w-1/4">
-                    <p className="text-xl absolute truncate tracking-wider text-secondaryText">
-                      {selectedGame.map}
-                    </p>
-                  </div>
-                </div>
-              </button>
-            ) : ( */}
-              <button
-                className="w-full relative ring-2 shadow-md"
+                className="w-full relative ring-2 shadow-md rounded-sm"
                 type="button"
                 onClick={toggleDropDown}
               >

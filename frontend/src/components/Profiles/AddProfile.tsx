@@ -1,4 +1,10 @@
-import { ChangeEvent, FormEvent, useState, KeyboardEvent, useRef } from 'react';
+import {
+  ChangeEvent,
+  FormEvent,
+  useState,
+  KeyboardEvent,
+  //  useRef
+} from 'react';
 import { ImCross } from 'react-icons/im';
 import { FaCheck } from 'react-icons/fa';
 import { verifyProfileLabelAvailability } from '../../utils/utils';
@@ -33,6 +39,14 @@ function AddProfile() {
     setInputField(false);
     setIsCreatingProfile(false);
   };
+
+  // const handleOutsideClick = () => {
+  //   setInputField(false);
+  //   console.log('je suis la');
+  //   clearNewProfile();
+  // };
+
+  // useOutsideClick(newProfileInputRef, handleOutsideClick, ['click']);
 
   const handleAddProfile = () => {
     try {
@@ -98,14 +112,14 @@ function AddProfile() {
               <button
                 type="submit"
                 onClick={handleAddProfile}
-                className="text-validate hover:scale-125"
+                className="text-validate"
               >
                 <FaCheck className="sign h-5 w-5" />
               </button>
               <button
                 onClick={handleCancel}
                 type="button"
-                className="text-warning hover:scale-125"
+                className="text-warning"
               >
                 <ImCross className="sign h-[0.9rem] w-[0.9rem]" />
               </button>

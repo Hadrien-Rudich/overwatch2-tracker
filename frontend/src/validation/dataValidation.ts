@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 const passwordRegex =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&#]{8,20}$/;
 // const battleTagRegex = /^(?=.*[#])[A-Za-z\d#]{3,20}$/;
 const dateFormatRegex = /^\d{2}\/\d{2}\/\d{2,4}$/;
 

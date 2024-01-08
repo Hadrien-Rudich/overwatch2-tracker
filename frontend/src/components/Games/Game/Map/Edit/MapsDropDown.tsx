@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
+import { MdOutlineKeyboardArrowUp } from 'react-icons/md';
 import { gameStore } from '../../../../../store/gameStore';
 import type { GameData } from '../../../../../types/store/gameTypes';
 import Map from '../Map';
@@ -37,7 +37,7 @@ function MapsDropDown({ gameObj, toggleDropDown }: MapsDropDownProps) {
   };
 
   return (
-    <div className="mapImage_container w-full absolute top-[-1rem] ring-2  ring-thirdColor bg-mainColor shadow-md">
+    <div className="mapImage_container w-full absolute top-[-1rem] ring-2  ring-thirdColor bg-mainColor shadow-md rounded-sm">
       <div
         className="h-8 w-full relative "
         onClick={toggleDropDown}
@@ -58,7 +58,7 @@ function MapsDropDown({ gameObj, toggleDropDown }: MapsDropDownProps) {
           </div>
         </div>
       </div>
-      <MdOutlineKeyboardArrowDown className="absolute h-8 w-8 top-0 right-0 pointer-events-none lg:block hidden" />
+      <MdOutlineKeyboardArrowUp className="absolute h-8 w-8 top-0 right-0 pointer-events-none lg:block hidden" />
       <div className="mapsDropDown_container">
         <div className="MapTypes_container sm:h-14 h-10 flexdiv">
           <MapTypes />
@@ -71,7 +71,7 @@ function MapsDropDown({ gameObj, toggleDropDown }: MapsDropDownProps) {
                 map.label.toLowerCase() !== selectedGame.map.toLowerCase() && (
                   <div
                     key={(gameObj.id, map.label)}
-                    className="map_container h-14"
+                    className="map_container h-[3.6rem]"
                   >
                     <button
                       type="button"

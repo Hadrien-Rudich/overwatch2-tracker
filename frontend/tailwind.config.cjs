@@ -20,6 +20,7 @@ export default {
       fifthColor: '#E6DACF',
       sixthColor: '#2F67A9',
       altColor: '#51E5FF',
+      ringColor: '#83ACF3',
       inactiveColor: '#347FD3',
       activeColor: '#FFFFFF',
       activeGrayColor: '#ADB7C6',
@@ -35,6 +36,10 @@ export default {
       warning: '#D32F2F',
       validate: '#43A047',
       new: '#009e38',
+      neonGreen: ' #39FF14',
+      neonOrange: '#FF5F1F',
+      neonOrange2: '#FF6700',
+      neonPink: '#FF10F0',
       disabled: '#D6D6D6',
     },
     screens: {

@@ -121,7 +121,7 @@ export const updateGameOnApi = async (
     ...gameObj,
   });
 
-  console.log(response);
+  // console.log(response);
   return {
     message: response.message,
     game: response.game,

@@ -49,7 +49,7 @@ function PwdFormat({
             className={`${oneSpecialChar ? 'text-validate' : 'text-warning '}  
       `}
           >
-            1 special char
+            1 special char @$!%*?&#
           </p>
           <p
             className={`${

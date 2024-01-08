@@ -31,6 +31,12 @@ interface AuthStore {
   // newBattleTag: string;
   // setNewBattleTag: (battleTag: string) => void;
   // clearNewBattleTag: () => void;
+
+  userCreatedToastMessage: string;
+  userCreatedToast: boolean;
+  setUserCreatedToastMessage: (message: string) => void;
+  setUserCreatedToast: (value: boolean) => void;
+
   activeTab: string;
   setActiveTab: (tab: string) => void;
   clearActiveTab: () => void;

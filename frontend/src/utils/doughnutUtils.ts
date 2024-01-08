@@ -20,7 +20,7 @@ function processDoughnutChartData(results: number[]) {
         hoverBorderColor: ['none'],
         hoverBorderWidth: 0,
         hoverOffset: 5,
-        borderWidth: 1,
+        borderWidth: 0,
       },
     ],
   };

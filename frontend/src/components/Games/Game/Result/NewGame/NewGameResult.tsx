@@ -41,19 +41,21 @@ function NewGameResult() {
               <button
                 className={`${getResultClassNameFromResult(
                   selectedGameResult
-                )} w-full ring-2 h-8 shadow-md`}
+                )} w-full ring-2 h-8 shadow-md rounded-sm`}
                 type="button"
                 onClick={toggleDropDown}
               >
-                {isLargeScreen
-                  ? selectedGameResult
-                  : selectedGameResult.slice(0, 1)}
+                <p className="xl:tracking-widest">
+                  {isLargeScreen
+                    ? selectedGameResult
+                    : selectedGameResult.slice(0, 1)}
+                </p>
               </button>
             ) : (
               <button
                 className={`${getResultClassNameFromResult(
                   selectedGameResult
-                )} w-full relative ring-2 h-8 shadow-md`}
+                )} w-full relative ring-2 h-8 shadow-md rounded-sm`}
                 type="button"
                 onClick={toggleDropDown}
               >
@@ -66,7 +68,7 @@ function NewGameResult() {
                 </div>
               </button>
             )}
-            <MdOutlineKeyboardArrowDown className="absolute h-4 w-4 top-[0.5rem] right-[-0.1rem] pointer-events-none lg:block hidden" />
+            <MdOutlineKeyboardArrowDown className="absolute h-4 w-4 top-[0.5rem] xl:right-0 right-[-0.15rem] pointer-events-none lg:block hidden" />
           </div>
         )}
       </div>

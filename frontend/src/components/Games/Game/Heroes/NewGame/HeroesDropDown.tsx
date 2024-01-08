@@ -46,7 +46,7 @@ function HeroesDropDown({ toggleDropDown }: HeroesDropDownProps) {
   };
 
   return (
-    <div className="heroesImages_container absolute top-[-1rem] ring-2 ring-fourthColor bg-activeColor shadow-md">
+    <div className="heroesImages_container absolute top-[-1rem] ring-2 ring-fourthColor bg-activeColor shadow-md rounded-sm">
       {errorToast && (
         <ErrorToast
           toastText={errorToastMessage}
@@ -90,7 +90,7 @@ function HeroesDropDown({ toggleDropDown }: HeroesDropDownProps) {
         {rolesData.map((r) => (
           <div key={r.label} className="heroesByRoles_container">
             <div className="heroes_container flexdiv">
-              <div className="flexdiv flex-wrap gap-1">
+              <div className="flexdiv flex-wrap lg:gap-1 gap-[0.1rem]">
                 {heroesData
                   .filter(
                     (hero) => hero.role.toLowerCase() === r.label.toLowerCase()
@@ -99,17 +99,17 @@ function HeroesDropDown({ toggleDropDown }: HeroesDropDownProps) {
                     <div
                       className={`${
                         selectedGameHeroes.includes(h.slug)
-                          ? 'ring ring-thirdColor shadow-md'
-                          : 'hover:scale-110 '
-                      }    heroes_container bg-activeColor rounded-sm h-9`}
+                          ? 'ring-[0.1rem] ring-thirdColor '
+                          : 'grayscale opacity-60 hover:scale-110 hover:grayscale-0 hover:opacity-100'
+                      }    heroes_container bg-activeColor rounded-sm lg:h-8 sm:7 h-6 shadow-md`}
                       key={h.slug}
                     >
                       <button
                         type="button"
-                        className="h-6"
+                        className="lg:h-8 sm:7 h-6"
                         onClick={() => selectHero(h.slug, h.imageUrl)}
                       >
-                        <Heroes heroObj={h} imgHeight="h-9" />
+                        <Heroes heroObj={h} imgHeight="lg:h-8 sm:7 h-6" />
                       </button>
                     </div>
                   ))}

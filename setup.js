@@ -65,10 +65,10 @@ const compileTypeScript = (directory) => {
 };
 
 const setupProject = async () => {
-  copyEnvFile("./_backend");
-  await installDependencies("./_backend");
-  await compileTypeScript("./_backend");
-  await installDependencies("./_frontend");
+  copyEnvFile("./backend");
+  await installDependencies("./backend");
+  await compileTypeScript("./backend");
+  await installDependencies("./frontend");
 };
 
 setupProject().catch((error) => {

@@ -25,7 +25,7 @@ function Map({ gameObj, mapObj, imgHeight }: MapProps) {
           <div className="absolute inset-0">
             <div className="flexdiv absolute  top-0 left-0 text-secondaryText sm:px-1 px-0.5 bg-mainText bg-opacity-40 xl:w-[15%] lg:w-[18%] sm:w-[22%] sm:h-12 h-4">
               <div className="flexdiv w-full gap-2">
-                <p className="w-full sm:text-base text-sm sm:tracking-widest tracking-wider truncate text-left">
+                <p className="w-full sm:text-base text-xs sm:tracking-widest tracking-wider truncate text-left">
                   {gameObj.map}
                 </p>
 
@@ -59,7 +59,7 @@ function Map({ gameObj, mapObj, imgHeight }: MapProps) {
             alt=""
           />
           <div className="absolute flexdiv px-1 bg-mainText bg-opacity-40 sm:w-1/4 h-6  invisible group-hover:visible ">
-            <p className="sm:text-base text-sm absolute truncate sm:tracking-widest tracking-wider text-secondaryText invisible group-hover:visible ">
+            <p className="sm:text-base text-xs absolute truncate sm:tracking-widest tracking-wider text-secondaryText invisible group-hover:visible ">
               {mapObj.label}
             </p>
           </div>
@@ -73,8 +73,8 @@ function Map({ gameObj, mapObj, imgHeight }: MapProps) {
               src={`images/maps/${mapObj.imageUrl}`}
               alt=""
             />
-            <div className="flexdiv absolute  top-0 left-0 sm:px-1 px-0.5 bg-mainText bg-opacity-40 sm:h-6 h-4">
-              <p className=" text-activeColor sm:text-base text-sm sm:tracking-widest tracking-wider">
+            <div className="flexdiv absolute  top-0 left-0 sm:px-1 px-0.5 bg-mainText w-full bg-opacity-40 sm:h-6 h-4">
+              <p className=" text-activeColor sm:text-base text-xs truncate sm:tracking-widest tracking-wider">
                 {mapObj.label}
               </p>
             </div>

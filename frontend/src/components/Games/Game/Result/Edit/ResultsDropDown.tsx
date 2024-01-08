@@ -34,7 +34,7 @@ function ResultsDropDown({ gameObj, toggleDropDown }: ResultsDropDownProps) {
   };
 
   return (
-    <div className="ResultsDropDown_container w-[75%] ring-2 ring-thirdColor absolute top-[-1rem] shadow-md">
+    <div className="ResultsDropDown_container w-[75%] ring-2 ring-thirdColor absolute top-[-1rem] shadow-md rounded-sm">
       <button
         className={`${getResultClassNameFromResult(
           currentGame.result.charAt(0).toUpperCase() +
@@ -47,7 +47,7 @@ function ResultsDropDown({ gameObj, toggleDropDown }: ResultsDropDownProps) {
           <Result gameObj={currentGame} />
         </div>
       </button>
-      <MdOutlineKeyboardArrowUp className="absolute h-4 w-4 top-[1rem] right-[-0.05rem] pointer-events-none lg:block hidden" />
+      <MdOutlineKeyboardArrowUp className="absolute h-4 w-4 top-[0.5rem] xl:right-0 right-[-0.1rem] pointer-events-none lg:block hidden" />
 
       <ul className="results_container">
         {results.map(
@@ -61,7 +61,7 @@ function ResultsDropDown({ gameObj, toggleDropDown }: ResultsDropDownProps) {
                   onClick={() => selectResult(result.label)}
                   id={result.label}
                 >
-                  <p>
+                  <p className="tracking-widest">
                     {isLargeScreen ? result.label : result.label.slice(0, 1)}
                   </p>
                 </button>

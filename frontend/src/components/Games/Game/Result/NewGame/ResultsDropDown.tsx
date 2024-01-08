@@ -25,7 +25,7 @@ function ResultsDropDown({ toggleDropDown }: ResultsDropDownProps) {
   };
 
   return (
-    <div className="ResultsDropDown_container w-[75%] ring-2 ring-fourthColor absolute top-[-1rem] shadow-md">
+    <div className="ResultsDropDown_container w-[75%] ring-2 ring-fourthColor absolute top-[-1rem] shadow-md rounded-sm">
       {selectedGameResult !== '' && (
         <button
           className={`${getResultClassNameFromResult(
@@ -34,7 +34,7 @@ function ResultsDropDown({ toggleDropDown }: ResultsDropDownProps) {
           type="button"
           onClick={toggleDropDown}
         >
-          <p>
+          <p className="">
             {isLargeScreen
               ? selectedGameResult
               : selectedGameResult.slice(0, 1)}
@@ -42,7 +42,7 @@ function ResultsDropDown({ toggleDropDown }: ResultsDropDownProps) {
         </button>
       )}
 
-      <MdOutlineKeyboardArrowUp className="absolute h-4 w-4 top-[0.5rem] right-[-0.1rem] pointer-events-none lg:block hidden" />
+      <MdOutlineKeyboardArrowUp className="absolute h-4 w-4 top-[0.5rem] xl:right-0 right-[-0.1rem] pointer-events-none lg:block hidden" />
       <ul className="results_container">
         {results.map(
           (result) =>
@@ -54,7 +54,9 @@ function ResultsDropDown({ toggleDropDown }: ResultsDropDownProps) {
                   onClick={() => selectResult(result.label)}
                   id={result.label}
                 >
-                  {isLargeScreen ? result.label : result.label.slice(0, 1)}
+                  <p className="xl:tracking-widest">
+                    {isLargeScreen ? result.label : result.label.slice(0, 1)}
+                  </p>
                 </button>
               </li>
             )

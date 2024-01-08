@@ -93,7 +93,9 @@ function RegisterForm() {
     if (RegisterSchema.parse({ email, password })) {
       setCreateUser(true);
       setIsLoading(true);
-      mutateUser();
+      setTimeout(() => {
+        mutateUser();
+      }, 500);
     }
   };
 
