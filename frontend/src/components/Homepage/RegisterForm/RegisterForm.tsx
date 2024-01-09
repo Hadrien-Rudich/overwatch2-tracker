@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import InputField from '../../InputField';
-import useUserRegisterMutation from '../../../hooks/users/useUserRegisterMutation';
+import useUserRegisterMutation from '../../../hooks/account/useUserRegisterMutation';
 import LoadingSpinner from '../../LoadingSpinner';
 import PwdFormat from '../PwdFormat';
 import { RegisterSchema } from '../../../validation/dataValidation';

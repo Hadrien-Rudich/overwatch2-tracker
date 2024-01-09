@@ -1,6 +1,5 @@
 import type { UserData } from '../../types/store/authTypes';
-
-import { postDataToApi, fetchDataFromApi } from './general';
+import { postDataToApi, fetchDataFromApi, patchDataOnApi } from './general';
 
 export interface UserVerified {
   accessToken: string;
@@ -83,6 +82,14 @@ export const register = async (
   } catch (error) {
     return { success: false, message: 'Unexpected error' };
   }
+};
+
+export const updateUserEmail = async (
+  userId: number,
+  newEmail: string
+): Promise<UserData> => {
+  const endpoint = `user/${userId}/details`;
+  return patchDataOnApi(endpoint, { id: userId, email: newEmail });
 };
 
 export const logOut = async (): Promise<void> => {

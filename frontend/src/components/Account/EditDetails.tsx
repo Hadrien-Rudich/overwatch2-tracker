@@ -1,18 +1,11 @@
-import { ChangeEvent, KeyboardEvent } from 'react';
+import { ChangeEvent, KeyboardEvent, FormEvent } from 'react';
 import { authStore } from '../../store/authStore';
 import InputField from '../InputField';
+import useAccountUpdateMutation from '../../hooks/account/useAccountUpdateMutation';
 
 function EditDetails() {
-  const {
-    toggleEditAccount,
-    userData,
-    newEmail,
-    setNewEmail,
-    clearNewEmail,
-    // newBattleTag,
-    // setNewBattleTag,
-    // clearNewBattleTag,
-  } = authStore();
+  const { toggleEditAccount, userData, newEmail, setNewEmail, clearNewEmail } =
+    authStore();
 
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     setNewEmail(event.target.value);
@@ -34,9 +27,16 @@ function EditDetails() {
     }
   };
 
+  const mutateUser = useAccountUpdateMutation();
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    mutateUser();
+  };
+
   return (
     <div className="main_container">
-      <form action="submit">
+      <form action="submit" onSubmit={handleSubmit}>
         <div className="inputandbutton_container flexdiv col gap-8">
           <div className="input_container flexdiv col gap-4">
             <InputField
@@ -49,17 +49,6 @@ function EditDetails() {
               onChange={handleEmailChange}
               onKeyDown={handleKeyDown}
             />
-
-            {/* <InputField
-              label="BattleTag"
-              type="text"
-              value={newBattleTag}
-              placeholder={userData.battleTag}
-              disabled={false}
-              required={false}
-              onChange={handleBattleTagChange}
-              onKeyDown={handleKeyDown}
-            /> */}
           </div>
           <div className="button_container flexdiv gap-4">
             <button
@@ -69,7 +58,7 @@ function EditDetails() {
             >
               Cancel
             </button>
-            <button type="button" className="button validate">
+            <button type="submit" className="button validate">
               Confirm
             </button>
           </div>

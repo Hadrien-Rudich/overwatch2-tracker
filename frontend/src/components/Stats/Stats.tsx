@@ -30,10 +30,10 @@ function Stats() {
             {/* <div className="bg-mainColor mt-24 container mx-auto flexdiv gap-24">
               <LineChart />
             </div> */}
-            <div className="bg-mainColor mt-24 container mx-auto flexdiv gap-24">
+            <div className="bg-mainColor container mx-auto flexdiv my-12">
               <DoughnutChart />
             </div>
-            <div className="bg-mainColor mt-24 container mx-auto flexdiv gap-24">
+            <div className="bg-mainColor container mx-auto flexdiv my-12">
               <HorizontalBarChart />
             </div>
           </div>

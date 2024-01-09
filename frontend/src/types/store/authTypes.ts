@@ -15,6 +15,7 @@ interface AuthStore {
   setLoggedIn: () => void;
   setLoggedOut: () => void;
   setUserData: (userData: UserData) => void;
+  updateUserData: (email: string) => void;
   editAccount: boolean;
   toggleEditAccount: () => void;
   editSecurity: boolean;

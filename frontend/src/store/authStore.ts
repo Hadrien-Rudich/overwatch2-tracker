@@ -22,6 +22,8 @@ export const authStore = create<AuthStore>()((set) => ({
       };
     }),
   setUserData: (userData) => set(() => ({ userData })),
+  updateUserData: (email: string) =>
+    set((state) => ({ userData: { ...state.userData, email } })),
   editAccount: false,
   toggleEditAccount: () =>
     set((state) => ({ editAccount: !state.editAccount })),
