@@ -65,7 +65,8 @@ const compileTypeScript = (directory) => {
 };
 
 const setupProject = async () => {
-  copyEnvFile("./backend");
+  await installDependencies(".");
+  copyEnvFile("./_backend");
   await installDependencies("./backend");
   await compileTypeScript("./backend");
   await installDependencies("./frontend");

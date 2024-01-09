@@ -95,7 +95,7 @@ function RegisterForm() {
       setIsLoading(true);
       setTimeout(() => {
         mutateUser();
-      }, 500);
+      }, 750);
     }
   };
 
