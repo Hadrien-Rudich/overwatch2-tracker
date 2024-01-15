@@ -1,15 +1,8 @@
-import {
-  ChangeEvent,
-  FormEvent,
-  useState,
-  KeyboardEvent,
-  //  useRef
-} from 'react';
+import { ChangeEvent, FormEvent, useState, KeyboardEvent } from 'react';
 import { ImCross } from 'react-icons/im';
 import { FaCheck } from 'react-icons/fa';
 import { verifyProfileLabelAvailability } from '../../utils/utils';
 import { profileStore } from '../../store/profileStore';
-// import useOutsideClick from '../useOutsideClick';
 import useProfileAddMutation from '../../hooks/profiles/useProfileAddMutation';
 import NewProfileMode from './NewProfileMode';
 import ErrorToast from '../ErrorToast';
@@ -25,8 +18,6 @@ function AddProfile() {
   const [inputField, setInputField] = useState(false);
   const [errorToast, setErrorToast] = useState(false);
   const [errorToastMessage, setErrorToastMessage] = useState('');
-
-  // const newProfileInputRef = useRef<HTMLInputElement>(null);
 
   const mutateProfile = useProfileAddMutation();
 
@@ -66,10 +57,7 @@ function AddProfile() {
   };
 
   return (
-    <div
-      className="addprofile_container flexdiv"
-      //  ref={newProfileInputRef}
-    >
+    <div className="addprofile_container flexdiv">
       {!inputField && <NewProfileMode setInputField={setInputField} />}
       {inputField && (
         <form onSubmit={handleSubmit}>

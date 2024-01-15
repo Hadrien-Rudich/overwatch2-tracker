@@ -44,7 +44,6 @@ interface GameStore {
 
   gameUpdateInProgress: boolean;
   currentMonth: number;
-  gameSavedToast: boolean;
   selectGameMap: (map: string, mapImage: string) => void;
   selectGameMapType: (mapType: string) => void;
   clearSelectedGameMapType: () => void;
@@ -63,10 +62,6 @@ interface GameStore {
   setGameUpdateInProgress: (boolean: boolean) => void;
 
   setCurrentMonth: (month: number) => void;
-
-  gameSavedToastMessage: string;
-  setGameSavedToastMessage: (message: string) => void;
-  setGameSavedToast: (value: boolean) => void;
 
   mapErrorToast: boolean;
   setMapErrorToast: (value: boolean) => void;

@@ -6,21 +6,13 @@ import { profileStore } from '../../store/profileStore';
 import AddProfile from './AddProfile';
 import Profile from './Profile';
 import useProfilesQuery from '../../hooks/profiles/useProfilesQuery';
-import SuccessToast from '../SuccessToast';
 import NotFound from '../NotFound';
 
 function Profiles() {
   const navigate = useNavigate();
 
   const { isLoggedIn } = authStore();
-  const {
-    profilesData,
-    profileSavedToast,
-    isUpdatingProfile,
-    setProfileSavedToast,
-    setProfileSavedToastMessage,
-    profileSavedToastMessage,
-  } = profileStore();
+  const { profilesData, isUpdatingProfile } = profileStore();
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -56,14 +48,6 @@ function Profiles() {
         <AddProfile />
       </div>
       <div className="containerbox">
-        {profileSavedToast && (
-          <SuccessToast
-            toastText={profileSavedToastMessage}
-            setToastText={setProfileSavedToastMessage}
-            isVisible={profileSavedToast}
-            setIsVisible={setProfileSavedToast}
-          />
-        )}
         <div className="w-52 flex flex-col gap-4">
           <Profile />
         </div>

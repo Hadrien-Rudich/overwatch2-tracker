@@ -1,4 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
+import { toast } from 'react-toastify';
 import { gameStore } from '../../store/gameStore';
 import { profileStore } from '../../store/profileStore';
 import { authStore } from '../../store/authStore';
@@ -10,8 +11,7 @@ import {
 } from '../../services/API/games';
 
 function useMockGameAddMutation() {
-  const { setGameSavedToastMessage, addMockGames, setGameSavedToast } =
-    gameStore();
+  const { addMockGames } = gameStore();
 
   const { userData } = authStore();
   const { selectedProfile } = profileStore();
@@ -20,8 +20,10 @@ function useMockGameAddMutation() {
     mutationFn: () =>
       addMockGamesToApi(userData.id, selectedProfile.id, mockGames),
     onSuccess: (newGamesAddedToApi: MockGamesAddedToApi) => {
-      setGameSavedToastMessage('Mock games created...');
-      setGameSavedToast(true);
+      toast.success('mock games created...', {
+        position: 'bottom-right',
+        theme: 'dark',
+      });
       addMockGames(newGamesAddedToApi.games);
     },
     retry: 1,

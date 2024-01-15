@@ -3,9 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import LoadingSpinner from '../LoadingSpinner';
 import { authStore } from '../../store/authStore';
 import { gameStore } from '../../store/gameStore';
-import SuccessToast from '../SuccessToast';
 import { useGamesQuery } from '../../hooks/games/useGamesQuery';
-// import MonthTabs from './MonthTabs';
 import Game from './Game';
 import NotFound from '../NotFound';
 
@@ -13,13 +11,7 @@ function Games() {
   const navigate = useNavigate();
 
   const { isLoggedIn } = authStore();
-  const {
-    gamesData,
-    gameSavedToast,
-    setGameSavedToast,
-    setGameSavedToastMessage,
-    gameSavedToastMessage,
-  } = gameStore();
+  const { gamesData } = gameStore();
   const {
     isLoading,
     isFetching,
@@ -43,15 +35,6 @@ function Games() {
         <NotFound
           propText="NO GAMES FOUND"
           topPosition="lg:top-[-5.5rem] top-[-3.4rem]"
-        />
-      )}
-
-      {gameSavedToast && (
-        <SuccessToast
-          toastText={gameSavedToastMessage}
-          setToastText={setGameSavedToastMessage}
-          isVisible={gameSavedToast}
-          setIsVisible={setGameSavedToast}
         />
       )}
 

@@ -1,4 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Header from './Header/Header';
 import LogInForm from './Homepage/LogInForm';
 import RegisterForm from './Homepage/RegisterForm/RegisterForm';
@@ -22,6 +24,7 @@ function App() {
         <Route path="/profiles" element={<Profiles />} />
         <Route path="/account" element={<Account />} />
       </Routes>
+      <ToastContainer autoClose={3000} draggable draggablePercent={60} />
     </div>
   );
 }

@@ -10,7 +10,6 @@ function CreateNewGame() {
     selectedGameMap,
     selectedGameResult,
     selectedGameDateInFormat,
-    setGameSavedToast,
     setIsCreatingGame,
     setMapErrorToastMessage,
     setMapErrorToast,
@@ -60,8 +59,6 @@ function CreateNewGame() {
         }
       });
     }
-
-    setGameSavedToast(false);
   };
 
   return (

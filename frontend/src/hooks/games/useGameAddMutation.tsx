@@ -1,4 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
+import { toast } from 'react-toastify';
+
 import { gameStore } from '../../store/gameStore';
 import { profileStore } from '../../store/profileStore';
 import { authStore } from '../../store/authStore';
@@ -14,9 +16,7 @@ function useGameAddMutation() {
     selectedGameMapType,
     selectedGameHeroesImages,
     selectedGameDateInFormat,
-    setGameSavedToastMessage,
     addGame,
-    setGameSavedToast,
   } = gameStore();
 
   const { userData } = authStore();
@@ -35,9 +35,11 @@ function useGameAddMutation() {
       }),
 
     onSuccess: (newGameAddedToApi: GameAddedToApi) => {
-      setGameSavedToastMessage('Game created...');
-      setGameSavedToast(true);
       addGame(newGameAddedToApi.game);
+      toast.success('game created...', {
+        position: 'bottom-right',
+        theme: 'dark',
+      });
     },
     retry: 1,
   });

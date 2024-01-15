@@ -1,4 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
+import { toast } from 'react-toastify';
+
 import { gameStore } from '../../store/gameStore';
 import type { GameData } from '../../types/store/gameTypes';
 import { updateGameOnApi, GameAddedToApi } from '../../services/API/games';
@@ -12,8 +14,6 @@ function useGameUpdateMutation({ gameObj }: { gameObj: GameData }) {
     selectedGameHeroes,
     selectedGameHeroesImages,
     setIsUpdatingGame,
-    setGameSavedToast,
-    setGameSavedToastMessage,
     updateGame,
   } = gameStore();
 
@@ -29,9 +29,12 @@ function useGameUpdateMutation({ gameObj }: { gameObj: GameData }) {
         heroesImageUrl: selectedGameHeroesImages,
       }),
     onSuccess: (UpdatedGameOnApi: GameAddedToApi) => {
-      setGameSavedToastMessage('Game updated...');
+      toast.success('game updated...', {
+        position: 'bottom-right',
+        theme: 'dark',
+      });
       setIsUpdatingGame(false);
-      setGameSavedToast(true);
+
       updateGame(UpdatedGameOnApi.game.id, UpdatedGameOnApi.game);
     },
     retry: 1,

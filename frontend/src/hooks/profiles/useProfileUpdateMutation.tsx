@@ -1,4 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
+import { toast } from 'react-toastify';
 import { profileStore } from '../../store/profileStore';
 import type { ProfileData } from '../../types/store/profileTypes';
 import {
@@ -12,19 +13,19 @@ function useProfileUpdateMutation({ profileObj }: { profileObj: ProfileData }) {
     setIsUpdatingProfile,
     updateProfileLabel,
     selectProfile,
-    setProfileSavedToastMessage,
-    setProfileSavedToast,
   } = profileStore();
 
   const { mutate } = useMutation({
     mutationFn: () =>
       updateProfileOnApi(profileObj.userId, profileObj.id, updatedProfileLabel),
     onSuccess: (updatedProfile: ProfileAddedtoApi) => {
-      setProfileSavedToast(true);
-      setProfileSavedToastMessage('Profile updated...');
       updateProfileLabel(profileObj.id, updatedProfileLabel);
       setIsUpdatingProfile(false);
       selectProfile(updatedProfile.profile);
+      toast.success('profile updated...', {
+        position: 'bottom-right',
+        theme: 'dark',
+      });
     },
     retry: 1,
   });

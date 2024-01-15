@@ -356,3 +356,17 @@ hover:opacity-100 hover:scale-110;
 .filter.active {
   @apply grayscale-0 opacity-100 scale-110;
 }
+
+.Toastify__toast-body {
+  font-family: 'Big Noodle Titling', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.2em;
+}
+/* If you want to customize for specific toast types, use: */
+.Toastify__toast--success .Toastify__progress-bar {
+  background: #39ff14;
+}
+
+.Toastify__toast--success .Toastify__toast-icon svg {
+  fill: #39ff14; /* For SVG icons */
+}

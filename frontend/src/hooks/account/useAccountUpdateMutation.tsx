@@ -1,4 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
+import { toast } from 'react-toastify';
 import { authStore } from '../../store/authStore';
 import { updateUserEmail } from '../../services/API/users';
 
@@ -17,6 +18,10 @@ function useAccountUpdateMutation() {
       updateUserData(newEmail);
       clearNewEmail();
       toggleEditAccount();
+      toast.success('email updated...', {
+        position: 'bottom-right',
+        theme: 'dark',
+      });
     },
     retry: 1,
   });

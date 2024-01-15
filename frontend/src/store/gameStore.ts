@@ -151,12 +151,6 @@ export const gameStore = create<GameStore>()((set) => ({
     set(() => ({
       currentMonth: month,
     })),
-  gameSavedToastMessage: '',
-  gameSavedToast: false,
-  setGameSavedToastMessage: (message: string) =>
-    set(() => ({ gameSavedToastMessage: message })),
-
-  setGameSavedToast: (value: boolean) => set(() => ({ gameSavedToast: value })),
 
   mapErrorToast: false,
   setMapErrorToast: (value: boolean) => set(() => ({ mapErrorToast: value })),

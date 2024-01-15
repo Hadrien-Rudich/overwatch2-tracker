@@ -14,14 +14,12 @@ function Profile() {
     unselectProfile,
     isUpdatingProfile,
     isCreatingProfile,
-    setProfileSavedToast,
   } = profileStore();
 
   const handleProfileClick = (
     event: MouseEvent<HTMLButtonElement> | MouseEvent<HTMLInputElement>,
     profileObj: ProfileData
   ) => {
-    setProfileSavedToast(false);
     const targetProfile = event.currentTarget.value;
     if (isUpdatingProfile) {
       return;
@@ -35,9 +33,6 @@ function Profile() {
   };
 
   return (
-    // className={`${isCreatingGame ? 'bg-mainColor grayscale' : null}
-    // Profile_container flex flex-col gap-4`}
-
     <div className="Profile_container flexdiv col gap-4 ">
       {profilesData.map((p) => (
         <div className="profile_container flexdiv gap-2 relative" key={p.label}>

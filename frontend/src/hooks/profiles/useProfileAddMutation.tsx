@@ -1,4 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
+import { toast } from 'react-toastify';
 import { profileStore } from '../../store/profileStore';
 import {
   addProfileToApi,
@@ -7,25 +8,21 @@ import {
 import { authStore } from '../../store/authStore';
 
 function useProfileAddMutation() {
-  const {
-    newProfile,
-    clearNewProfile,
-    addNewProfile,
-    setProfileSavedToastMessage,
-    setProfileSavedToast,
-    setIsCreatingProfile,
-  } = profileStore();
+  const { newProfile, clearNewProfile, addNewProfile, setIsCreatingProfile } =
+    profileStore();
 
   const { userData } = authStore();
 
   const { mutate } = useMutation({
     mutationFn: () => addProfileToApi(userData.id, newProfile),
     onSuccess: (newProfileAddedToApi: ProfileAddedtoApi) => {
-      setProfileSavedToastMessage('Profile created...');
-      setProfileSavedToast(true);
       addNewProfile(newProfileAddedToApi.profile);
       clearNewProfile();
       setIsCreatingProfile(false);
+      toast.success('profile created...', {
+        position: 'bottom-right',
+        theme: 'dark',
+      });
     },
     retry: 1,
   });

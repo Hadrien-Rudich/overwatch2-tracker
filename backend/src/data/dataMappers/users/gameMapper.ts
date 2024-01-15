@@ -1,4 +1,5 @@
 import { games } from './gamesData';
+import { randomInt } from 'crypto';
 import { Game } from '../../../models/map/game';
 import { generateIncrementalId } from '../../../utils/functions';
 import { NotFoundError, InternalServerError } from '../../../models/error';
@@ -55,7 +56,7 @@ export const gameMapper = {
     for (const gameObj of gameObjects) {
       const newGame = {
         ...gameObj,
-        id: generateIncrementalId(games),
+        id: randomInt(1, 1000000),
       };
       games.push(newGame);
       mockGames.push(newGame);
