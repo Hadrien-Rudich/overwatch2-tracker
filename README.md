@@ -12,7 +12,19 @@ As of January 2024, the project is yet to be deployed but can be accessed locall
 
 **Setup and Launch Guide:**
 
-To set up the application, run the following command in the root of the repository:
+_Local Setup using Docker (Recommended):_
+
+To set up and run the application using Docker, make sure you have Docker and Docker Compose installed on your system. Then, run the following command in the root of the repository:
+
+```shell
+docker-compose up
+```
+
+---
+
+_Manual Setup:_
+
+If you prefer not to use Docker, you can set up the application manually. First, run the following command in the root of the repository to install dependencies and set up the environment:
 
 ```shell
 npm run setup
@@ -24,7 +36,9 @@ After the setup is complete, start the application using:
 npm start
 ```
 
-The application should now be available at the following URL:
+---
+
+Whatever solution you pick, the application should now be available at the following URL:
 
 _http://localhost:5173/_
 
